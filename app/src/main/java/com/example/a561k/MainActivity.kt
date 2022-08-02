@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a561k.Adapter.Rv1Adapter
 import com.example.a561k.Adapter.Rv2Adapter
+import com.example.a561k.Adapter.Rv3Adapter
 import com.example.a561k.Adapter.RvAdapter
 import com.example.a561k.Models.Rv1AdapterItem
 import com.example.a561k.Models.Rv2AdapterItem
+import com.example.a561k.Models.Rv3AdapterItem
 import com.example.a561k.Models.RvAdapterItem
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         initViews()
         initViews1()
         initViews2()
+        initViews3()
     }
 
     private fun initViews(){
@@ -90,6 +93,28 @@ class MainActivity : AppCompatActivity() {
         item.add(Rv2AdapterItem(R.drawable.birds))
         item.add(Rv2AdapterItem(R.drawable.rut))
         item.add(Rv2AdapterItem(R.drawable.mbw))
+
+        return item
+    }
+
+    private fun initViews3(){
+        recyclerView = findViewById(R.id.rv3)
+        recyclerView.layoutManager = GridLayoutManager(this, 1)
+
+        refreshAdapter3(getAllChats3())
+    }
+
+    private fun refreshAdapter3(items: ArrayList<Rv3AdapterItem>){
+        val adapter = Rv3Adapter(this, items)
+        recyclerView.adapter = adapter
+    }
+
+    private fun getAllChats3(): ArrayList<Rv3AdapterItem> {
+        val item: ArrayList<Rv3AdapterItem> = ArrayList()
+
+        item.add(Rv3AdapterItem(R.drawable.birds, "Chika Chika Boom Boom", "4", "59","$7.99"))
+        item.add(Rv3AdapterItem(R.drawable.rut, "Clean Code", "25", "60",""))
+        item.add(Rv3AdapterItem(R.drawable.mbw, "Pattern Architecture", "30", "10", "$80.05"))
 
         return item
     }
