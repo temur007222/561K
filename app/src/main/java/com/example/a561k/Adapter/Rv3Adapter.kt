@@ -29,11 +29,6 @@ class Rv3Adapter(var context: Context, var items: ArrayList<Rv3AdapterItem>): Re
             holder.price1.text = rv3AdapterItem.price1
 
             holder.discount.paintFlags = holder.discount.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-
-          //  if (rv3AdapterItem.discount.isNotEmpty()){ holder.discount.text = rv3AdapterItem.discount}
-           // else{
-
-          //  }
         }
     }
 

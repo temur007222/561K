@@ -5,14 +5,8 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.a561k.Adapter.Rv1Adapter
-import com.example.a561k.Adapter.Rv2Adapter
-import com.example.a561k.Adapter.Rv3Adapter
-import com.example.a561k.Adapter.RvAdapter
-import com.example.a561k.Models.Rv1AdapterItem
-import com.example.a561k.Models.Rv2AdapterItem
-import com.example.a561k.Models.Rv3AdapterItem
-import com.example.a561k.Models.RvAdapterItem
+import com.example.a561k.Adapter.*
+import com.example.a561k.Models.*
 
 class MainActivity : AppCompatActivity() {
  private lateinit var  recyclerView: RecyclerView
@@ -24,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         initViews1()
         initViews2()
         initViews3()
+        initViews4()
     }
 
     private fun initViews(){
@@ -115,6 +110,31 @@ class MainActivity : AppCompatActivity() {
         item.add(Rv3AdapterItem(R.drawable.birds, "Chika Chika Boom Boom", "4", "59","$7.99"))
         item.add(Rv3AdapterItem(R.drawable.rut, "Clean Code", "25", "60",""))
         item.add(Rv3AdapterItem(R.drawable.mbw, "Pattern Architecture", "30", "10", "$80.05"))
+
+        return item
+    }
+
+    private fun initViews4(){
+        recyclerView = findViewById(R.id.rv4)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
+
+        refreshAdapter4(getAllChats4())
+    }
+
+    private fun refreshAdapter4(items: ArrayList<Rv4AdapterItem>){
+        val adapter = Rv4Adapter(this, items)
+        recyclerView.adapter = adapter
+    }
+
+    private fun getAllChats4(): ArrayList<Rv4AdapterItem> {
+        val item: ArrayList<Rv4AdapterItem> = ArrayList()
+
+        item.add(Rv4AdapterItem(R.drawable.mbw, "Beauty"))
+        item.add(Rv4AdapterItem(R.drawable.birds, "Home and Kitchen"))
+        item.add(Rv4AdapterItem(R.drawable.rut, "Sports and Outdoors"))
+        item.add(Rv4AdapterItem(R.drawable.street, "Electronics"))
+        item.add(Rv4AdapterItem(R.drawable.rut, "Outdoor clothing"))
+        item.add(Rv4AdapterItem(R.drawable.street, "Pet Supplies"))
 
         return item
     }
